@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/main.ts",
+  "engines": {
+    "node": "10.16.0"
+  },
   "scripts": {
     "dev": "nodemon src/main.ts",
     "debug": "nodemon",
