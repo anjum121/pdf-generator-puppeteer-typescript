@@ -36,7 +36,8 @@ process.on('unhandledRejection', (e) => {
         express.static(__dirname + './public');
         router.use('/public/pdf',express.static(path.join(__dirname, './public/pdf')));
 
-        const {PORT = 3000, Host = 'localhost'} = process.env;
+        const PORT = process.env.PORT || 3000;
+        const Host = process.env.HOST || 'localhost';
         const server = http.createServer(router);
         server.listen(PORT, () => {
             console.log(`Server is running at http://${Host}:${PORT}`);
