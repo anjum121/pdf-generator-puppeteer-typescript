@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+    <title>Test</title>
+
+    <meta charset="utf-8">
+    <style>
+        img.profile {
+            border: none;
+            max-width: 100%;
+            height: 60px;
+        }
+
+        body {
+            background-color: #dbdbdb;
+            font-family: sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: separate;
+            width: 100%;
+        }
+
+        table td {
+            font-family: sans-serif;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        .body {
+            background-color: #dbdbdb;
+            width: 100%;
+        }
+
+        .container {
+            display: block;
+            margin: 0 auto;
+            max-width: 980px;
+        }
+
+        .content {
+            box-sizing: border-box;
+            display: block;
+            margin: 0 auto;
+            max-width: 980px;
+            padding: 10px;
+        }
+
+        .main {
+            background: #ffffff;
+            border-radius: 3px;
+            width: 100%;
+        }
+
+        .wrapper {
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .content-block {
+            padding-bottom: 10px;
+
+        }
+
+        .footer {
+            margin-top: 10px;
+            text-align: center;
+            width: 100%;
+            background: #e6e6e6;
+            padding: 10px 0;
+            border-top: 1px solid #ffffff;
+
+        }
+
+
+    </style>
+
+</head>
+<body  >
+<div class="header">
+
+    <div class="block">
+        <div class="left">
+            <a href="love">
+
+                <img src="https://w3.accelya.com/hubfs/Accelya/Shared%20Assets/accelya-logo2.svg?t=1505121388005"
+                     class="hs-image-widget " style="width:120px;border-width:0px;border:0px;" width="120" alt="accelya"
+                     title="accelya" class="d-inline-block align-top">
+            </a>
+
+            <h2>Report for the</h2>
+        </div>
+        <div class="right">Generated</div>
+    </div>
+
+
+</div>
+
+<div>
+<table border="0" cellpadding="0" cellspacing="0" class="body">
+    <tr>
+        <td>&nbsp;</td>
+        <td class="container">
+            <div class="content">
+
+                <table class="main">
+                    <tr>
+                        <td class="wrapper">
+
+                            <div class="mcf-responsive-table">
+                                <table class="mcf-html-table header-text-left -alt-row">
+                                    <thead>
+                                    <tr>
+                                        <th>Profile Image</th>
+                                        <th>Membership Number</th>
+                                        <th>Card Number</th>
+                                        <th>Tier</th>
+                                        <th>Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    {{#each data}}
+
+                                    <tr>
+                                        <td>
+                                            <img class="profile"
+                                                 src="https://s3.ap-south-1.amazonaws.com/dummy-api-public/post/2.jpeg">
+                                        </td>
+                                        <td>1234567</td>
+                                        <td>123-456-678-122</td>
+                                        <td>Gold</td>
+                                        <td>Active</td>
+                                    </tr>
+                                    {{/each}}
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </td>
+
+    </tr>
+
+</table>
+
+</div>
+
+
+<div class="footer">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="content-block powered-by">
+                Powered by <a href="#">APAP UISDK</a>.
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

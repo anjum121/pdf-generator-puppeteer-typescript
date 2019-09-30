@@ -1,0 +1,25 @@
+{
+  "verbose": true,
+  "restartable": "rs",
+  "debug": true,
+  "execMap": {
+    "ts": "node --require ts-node/register"
+  },
+  "exec": "node --inspect -r ts-node/register server/main.ts",
+  "ignore": [
+    "node_modules",
+    "./test",
+    "**/*.d.ts",
+    "*.test.ts",
+    "*.spec.ts",
+    "fixtures/*",
+    "test/**/*",
+    "docs/*"
+  ],
+  "events": {
+    "restart": "echo \"[Warning] Remember run npm run test b4 push to dev branch !\""
+  },
+  "watch": ["./server"],
+  "ext": "ts, json, js",
+  "inspect": true
+}
