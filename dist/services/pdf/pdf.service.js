@@ -53,7 +53,7 @@ class PdfService {
             };
             const page = yield browser.newPage();
             if (templateFromURL !== null) {
-                options.path = `public/pdf/${name}-${new Date().getTime()}.pdf`;
+                options.path = `./public/pdf/${name}-${new Date().getTime()}.pdf`;
                 yield page.goto(templateFromURL, {
                     waitUntil: 'networkidle0'
                 });
@@ -63,11 +63,11 @@ class PdfService {
                     template = handlebars.compile(templateAsHtml);
                 }
                 else {
-                    let templateHtml = fs.readFileSync(path.join(process.cwd(), `public/templates/${templatePath}/template.html`), 'utf8');
+                    let templateHtml = fs.readFileSync(path.join(process.cwd(), `./public/templates/${templatePath}/template.html`), 'utf8');
                     template = handlebars.compile(templateHtml);
                 }
                 let html = template({ data: data });
-                options.path = `public/pdf/${name}-${new Date().getTime()}.pdf`;
+                options.path = `./public/pdf/${name}-${new Date().getTime()}.pdf`;
                 html = html.replace(/\s{2,}/g, '') // <-- Replace all consecutive spaces, 2+
                     .replace(/%/g, '%25') // <-- Escape %
                     .replace(/&/g, '%26') // <-- Escape &
