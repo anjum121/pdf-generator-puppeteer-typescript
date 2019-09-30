@@ -15,7 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
 const pdf_service_1 = require("./pdf.service");
 dotenv_1.default.config();
-const { PORT = 3000, Host = 'localhost' } = process.env;
+const PORT = process.env.PORT || 3000;
+const Host = process.env.HOST || 'localhost';
 class PdfController {
 }
 exports.PdfController = PdfController;

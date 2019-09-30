@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 import {PdfService} from './pdf.service';
 
 dotenv.config();
-const {PORT = 3000, Host = 'localhost'} = process.env;
+const PORT = process.env.PORT || 3000;
+const Host = process.env.HOST || 'localhost';
 
 export class PdfController {
     static fromURL = async (req: Request, res: Response) => {
