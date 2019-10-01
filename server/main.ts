@@ -34,7 +34,7 @@ process.on('unhandledRejection', (e) => {
         router.use('/api/v1/', routes);
 
         express.static(__dirname + './public');
-        router.use('/public/pdf',express.static(path.join(__dirname, './public/pdf')));
+        router.use('/public',express.static(path.join(process.cwd(), './public')));
 
         const PORT = process.env.PORT || 3000;
         const Host = process.env.HOST || 'localhost';

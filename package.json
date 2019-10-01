@@ -9,9 +9,9 @@
   "scripts": {
     "dev": "nodemon src/main.ts",
     "debug": "nodemon",
-    "start": "npm run copy:assets && node dist/main.js ",
+    "start": "node dist/main.js ",
     "start_old": "npx pm2 start pm2.yaml",
-    "build": "tsc",
+    "build": "tsc && npm run copy:assets",
     "nodemon:debug": "nodemon --config nodemon.json",
     "format": "prettier --write \"server/**/*.ts\" \"server/**/*.js\"",
     "lint": "tslint -p tsconfig.json",

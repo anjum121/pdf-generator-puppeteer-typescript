@@ -31,6 +31,6 @@ export const handleMorgan = (router: Router) => {
     //     path.join(__dirname, 'access.log'),
     //     { flags: 'a' }
     //   );
-    console.log("ooo---");
+    console.log("Morgan started here");
        router.use(logger.default('combined'));
 };
