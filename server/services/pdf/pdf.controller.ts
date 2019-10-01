@@ -3,8 +3,18 @@ import dotenv from 'dotenv';
 import {PdfService} from './pdf.service';
 
 dotenv.config();
+
+let HostName;
 const PORT = process.env.PORT || 3000;
 const Host = process.env.HOST || 'localhost';
+if (process.env.NODE_ENV === 'dev') {
+   HostName = `http://${Host}:${PORT}`;
+}else{
+  HostName = Host;
+}
+
+console.log(HostName);
+console.log("process.env.NODE_ENV", process.env.NODE_ENV);
 
 export class PdfController {
     static fromURL = async (req: Request, res: Response) => {
@@ -16,7 +26,7 @@ export class PdfController {
         const pdfPath = await PdfService.createPdf(null, name, url, null, null);
         res.send({
             status: 'Successfully created PDF file',
-            downloadPath: `http://${Host}:${PORT}/${pdfPath}`
+            downloadPath: `${HostName}/${pdfPath}`
         })
     };
 
@@ -30,7 +40,7 @@ export class PdfController {
         const pdfPath = await PdfService.createPdf(data, name, null,  predefinedTemplate, null);
         res.send({
             status: 'Successfully created PDF file',
-            downloadPath: `http://${Host}:${PORT}/${pdfPath}`
+            downloadPath: `${HostName}/${pdfPath}`
         })
     };
 
@@ -44,7 +54,7 @@ export class PdfController {
         const pdfPath = await PdfService.createPdf(data, name, null , null, templateAsHTML);
         res.send({
             status: 'Successfully created PDF file',
-            downloadPath: `http://${Host}:${PORT}/${pdfPath}`
+            downloadPath: `${HostName}/${pdfPath}`
         })
     };
 

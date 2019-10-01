@@ -2,7 +2,9 @@ import * as handlebars from "handlebars";
 import puppeteer from "puppeteer";
 import fetch from "node-fetch";
 import * as fs from "fs";
+import dotenv from "dotenv";
 
+dotenv.config();
 const path = require("path");
 
 export class PdfService {
@@ -21,7 +23,6 @@ export class PdfService {
 
     fs.mkdir(folderPath, { recursive: true }, err => {
       if (err && err.code != "EEXIST") throw "up";
-      console.log("created PDF folder inside public directory as it wasn't there");
     });
 
     let template;
@@ -56,7 +57,19 @@ export class PdfService {
       if (templateAsHtml !== null) {
         template = handlebars.compile(templateAsHtml);
       } else {
-        let templateHtml = fs.readFileSync(path.join(process.cwd(), `/public/templates/${templatePath}/template.html`), "utf8");
+
+
+        let templatesPath ;
+
+        if (process.env.NODE_ENV === 'dev') {
+          templatesPath =  path.join(process.cwd(), `./public/templates/${templatePath}/template.html`);
+        }else{
+          templatesPath =  path.join(process.cwd(), `app/public/templates/${templatePath}/template.html`);
+        }
+
+        console.log("templatesPath", templatesPath);
+
+        let templateHtml = fs.readFileSync(templatesPath, "utf8");
         template = handlebars.compile(templateHtml);
       }
 

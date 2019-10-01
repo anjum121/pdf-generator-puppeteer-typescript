@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student's profile</title>
+    <style type='text/css'>
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: rgb(33, 33, 33);
+        }
+
+        .report-header {
+            background: rgb(22, 29, 114);
+            color: #444;
+            padding: 15px 10px;
+            box-sizing: border-box;
+            display: flex;
+            position: relative;
+            align-content: center;
+            align-items: center;
+        }
+
+        .report-header .logo {
+            width: 120px;
+        }
+
+        .report-header h3{
+            padding: 0 0 0 20px;
+            border-left: 1px solid #ddd;
+            margin:0 0 0 20px;
+            font-weight: 400;
+        }
+
+        .report-footer {
+            background: rgb(22, 29, 114);
+            color: rgb(255, 255, 255);
+            padding: 15px;
+            box-sizing: border-box;
+            display: block;
+            position: relative;
+        }
+
+        .report-body {
+            width: 70%;
+            display: inline-block;
+            position: relative;
+            padding: 0;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+
+        .report-photo {
+            width: 28%;
+            display: inline-block;
+            position: relative;
+            vertical-align: top;
+            box-sizing: border-box;
+            margin-top: 0;
+        }
+
+        .report-photo img {
+            width: 100%;
+        }
+
+        .report-body .info p {
+            border: rgb(204, 204, 204) solid 1px;
+            padding: 5px;
+            display: block;
+            position: relative;
+            border-bottom: none;
+            font-size: 14px;
+        }
+
+        .report-body .info p:last-child {
+            border: rgb(204, 204, 204) solid 1px;
+        }
+
+        .container {
+            margin: 8% auto;
+            width: 980px;
+            max-width: 980px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .header {
+            background: #fff;
+            box-shadow: -1px 2px 4px 0px #c1c1c1;
+            margin-bottom: 5px;
+        }
+    </style>
+    <meta charset='utf-8'>
+</head>
+<body>
+
+<div class='report-header header'>
+    <img src='https://w3.accelya.com/hubfs/Accelya/Shared%20Assets/accelya-logo2.svg?t=1505121388005'
+         alt='accelya'
+         title='accelya' class='logo'>
+    <h3>People who are amazing at work</h3>
+</div>
+{{#each data}}
+<div class='container'>
+    <div class='report-body'>
+        <div class='info'>
+            <p>Name: {{name}}</p>
+            <p>Username: {{username}}</p>
+            <p>Email: {{email}}</p>
+            <p>Phone: {{phone}}</p>
+            <p>Website: {{website}}</p>
+            <p>Catch Phrase: {{company.catchPhrase}}</p>
+            <p>Street : {{address.street}}</p>
+            <p>Suite: {{address.suite}}</p>
+            <p>City: {{address.city}}</p>
+            <p>Zip code: {{address.zipcode}}</p>
+        </div>
+        <div class='obs'>
+
+        </div>
+    </div>
+    <div class='report-photo'>
+        <img src='{{url}}'>
+    </div>
+</div>
+{{/each}}
+
+<div class='report-footer'>
+    A generic Company - All Rights reserved.
+</div>
+</body>
+</html>
